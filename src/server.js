@@ -13,6 +13,9 @@ const port = process.env.PORT || 3000;
 
 const router = express.Router();
 
+//import routes
+import shoeRoutes from "./routes/shoe.route";
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +34,8 @@ if (process.env.NODE_ENV == "test") {
     return console.log("Connection Successful to database");
   });
 }
+
+router.use("/shoe", shoeRoutes);
 
 app.use("/api", router);
 
