@@ -19,4 +19,31 @@ const responseOk = (res, data) => {
     data,
   });
 };
-export { responseOkCreated, responseNotFound, responseOk };
+const responseOkUserCreated = (res, userdata) => {
+  return res.status(201).json({
+    success: true,
+    message: "user successfully added",
+    userdata,
+  });
+};
+const responseBadAuth = (res) => {
+  return res.status(401).json({
+      success: false,
+      message: 'auth failed'
+  });
+}
+const responseServerError = (res) => {
+  return res.status(500).json({
+      success: false,
+      message: "internal server error",
+  });
+}
+
+export {
+  responseOkCreated,
+  responseNotFound,
+  responseOk,
+  responseOkUserCreated,
+  responseBadAuth,
+  responseServerError
+};
