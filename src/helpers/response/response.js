@@ -38,6 +38,12 @@ const responseServerError = (res) => {
       message: "internal server error",
   });
 }
+const responseBadRquest = (res) => {
+  return res.status(400).json({
+      success: false,
+      message: 'unable to save provided input'
+  });
+}
 
 export {
   responseOkCreated,
@@ -45,5 +51,6 @@ export {
   responseOk,
   responseOkUserCreated,
   responseBadAuth,
-  responseServerError
+  responseServerError, 
+  responseBadRquest
 };
