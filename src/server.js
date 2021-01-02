@@ -16,6 +16,7 @@ const router = express.Router();
 //import routes
 import shoeRoutes from "./routes/shoe.route";
 import userRoutes from './routes/user.route';
+import colorRoutes from './routes/color.route';
 
 app.use(cors());
 app.use(express.json());
@@ -38,6 +39,7 @@ if (process.env.NODE_ENV == "test") {
 
 router.use("/shoe", shoeRoutes);
 router.use('/user', userRoutes);
+router.use('/color', colorRoutes);
 
 app.use("/api", router);
 

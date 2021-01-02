@@ -10,15 +10,15 @@ class Db {
   static async getShoes(model) {
     try {
       const allShoes = await model.find({});
-      return allShoes
+      return allShoes;
     } catch (error) {
       throw error;
     }
   }
   static async findUser(model, username) {
     try {
-      const user = await model.findOne({ username })
-      return user
+      const user = await model.findOne({ username });
+      return user;
     } catch (error) {
       throw error;
     }
@@ -34,7 +34,23 @@ class Db {
   static async getAllUsers(model) {
     try {
       const allUsers = await model.find({});
-      return allUsers
+      return allUsers;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async addColor(model, data) {
+    try {
+      const newColor = await model({ ...data });
+      return newColor.save();
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async getColors(model) {
+    try {
+      const allColors = await model.find({});
+      return allColors;
     } catch (error) {
       throw error;
     }
