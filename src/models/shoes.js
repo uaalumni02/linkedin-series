@@ -2,9 +2,21 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const ShoeSchema = Schema({
-  shoe: {
+  brand: {
     type: String,
     required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  color: {
+    type: Schema.Types.ObjectId,
+    ref: "Color",
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   __v: {
     type: Number,

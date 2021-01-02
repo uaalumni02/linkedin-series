@@ -55,6 +55,18 @@ class Db {
       throw error;
     }
   }
+  static async getShoesByUser(model, userId) {
+    console.log(userId)
+    try {
+      const shoes = await model
+        .find({ userId })
+        .populate("color userId")
+        .exec();
+      return shoes;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default Db;

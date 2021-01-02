@@ -9,4 +9,8 @@ router
   .post(shoeController.addShoeData)
   .get(shoeController.getAllShoes);
 
+  router
+  .route("/:user")
+  .get( shoeController.getShoeByUser)
+
 export default router;

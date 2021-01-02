@@ -3,6 +3,7 @@ import Shoe from "../models/shoes";
 
 import * as Response from "../helpers/response/response";
 
+
 class ShoeData {
   static async addShoeData(req, res) {
     const shoeData = { ...req.body };
@@ -17,6 +18,15 @@ class ShoeData {
     try {
       const getShoes = await Db.getShoes(Shoe);
       return Response.responseOk(res, getShoes);
+    } catch (error) {
+      return Response.responseNotFound(res);
+    }
+  }
+  static async getShoeByUser(req, res) {
+    const { user } = req.params;
+    try {
+      const shoeByUser = await Db.getShoesByUser(Shoe, user);
+      return Response.responseOk(res, shoeByUser);
     } catch (error) {
       return Response.responseNotFound(res);
     }
