@@ -44,3 +44,4 @@ router.use('/color', colorRoutes);
 app.use("/api", router);
 
 app.listen(port, () => log("server is running"));
+export default app;

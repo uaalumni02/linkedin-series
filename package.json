@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": " NODE_ENV=test mocha --require @babel/register ./tests/**/*.js --exit",
     "start:dev": "nodemon --exec babel-node src/server",
     "build": "babel src -d build",
     "start": "node build/server.js"
@@ -29,6 +29,12 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "@babel/runtime": "^7.12.5",
-    "nodemon": "^2.0.6"
+    "casual": "^1.6.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "should": "^13.2.3",
+    "supertest": "^6.0.1"
   }
 }
